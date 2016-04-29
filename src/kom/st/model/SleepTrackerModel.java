@@ -3,16 +3,15 @@ package kom.st.model;
 import javafx.beans.binding.Bindings;
 import javafx.beans.property.*;
 import javafx.beans.value.ObservableBooleanValue;
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 
 public class SleepTrackerModel {
-  private SleepTrackerRepository repository = new SleepTrackerRepository();
+  private SleepTrackerRepositoryRx repository = new SleepTrackerRepositorySync();
 
-  private ObservableList<String> vatinList = FXCollections.observableList(repository.getVatinList());
+  private ObservableList<String> vatinList = repository.getVatinList();
   private StringProperty selectedVatin = new SimpleStringProperty();
   private ListProperty<SleepRecord> vatinSleepRecords = new SimpleListProperty<>();
 
@@ -36,7 +35,7 @@ public class SleepTrackerModel {
   }
 
   public ObservableList<SleepRecord> getSleepRecords(String vatin) {
-    return FXCollections.observableList(repository.getSleepRecords(vatin));
+    return repository.getSleepRecords(vatin);
   }
 
   public void startSleeping() {
