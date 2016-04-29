@@ -21,7 +21,7 @@ public class SleepTrackerModel {
       String url = "jdbc:postgresql:SleepTracker?user=postgres&password=postgres";
       conn = DriverManager.getConnection(url);
       stmt = conn.createStatement();
-      ResultSet rs = stmt.executeQuery("select vatin from sleeptracker");
+      ResultSet rs = stmt.executeQuery("select distinct vatin from sleeptracker");
       while (rs.next()) {
         vatinList.add(rs.getString(1));
       }
