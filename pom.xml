@@ -3,4 +3,29 @@
   <groupId>kom.st</groupId>
   <artifactId>sleep-tracker</artifactId>
   <version>1.0.0</version>
+
+  <organization>
+    <name>KOM</name>
+  </organization>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.postgresql</groupId>
+      <artifactId>postgresql</artifactId>
+      <version>9.4.1208</version>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>com.zenjava</groupId>
+        <artifactId>javafx-maven-plugin</artifactId>
+        <version>8.1.4</version>
+        <configuration>
+          <mainClass>kom.st.Main</mainClass>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
 </project>
