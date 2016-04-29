@@ -1,0 +1,10 @@
+# Based on https://github.com/github/gitignore/blob/master/Global/JetBrains.gitignore
+
+/out/
+
+# User-specific stuff:
+.idea/workspace.xml
+.idea/vcs.xml
+
+# Maven
+.idea/libraries
