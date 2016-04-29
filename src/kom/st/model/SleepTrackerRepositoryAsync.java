@@ -3,7 +3,6 @@ package kom.st.model;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-import java.util.concurrent.Executor;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 

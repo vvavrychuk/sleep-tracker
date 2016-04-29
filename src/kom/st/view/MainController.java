@@ -63,6 +63,9 @@ public class MainController {
     dialog.setTitle("New user");
     dialog.setContentText("Please enter user name:");
 
+    dialog.getDialogPane().lookupButton(ButtonType.OK).disableProperty().bind(
+      dialog.getEditor().textProperty().length().isEqualTo(0));
+
     Optional<String> result = dialog.showAndWait();
     if (result.isPresent()) {
       model.getVatinList().add(result.get());
