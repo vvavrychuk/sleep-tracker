@@ -32,7 +32,7 @@ public class SleepTrackerRepositoryAsync implements SleepTrackerRepositoryRx {
   }
 
   @Override
-  public void addSleepRecord(SleepRecord record) throws Exception {
+  public void addSleepRecord(SleepRecord record) throws ApplicationException {
     executor.execute(() -> {
       try {
         getRepository().addSleepRecord(record);

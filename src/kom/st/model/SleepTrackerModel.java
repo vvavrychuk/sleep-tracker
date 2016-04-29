@@ -3,10 +3,12 @@ package kom.st.model;
 import javafx.beans.binding.Bindings;
 import javafx.beans.property.*;
 import javafx.beans.value.ObservableBooleanValue;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
+import java.util.regex.Pattern;
 
 public class SleepTrackerModel {
   private SleepTrackerRepositoryRx repository = new SleepTrackerRepositoryAsync();
@@ -23,7 +25,16 @@ public class SleepTrackerModel {
   }
 
   public ObservableList<String> getVatinList() {
-    return vatinList;
+    return FXCollections.unmodifiableObservableList(vatinList);
+  }
+
+  public void addVatin(String vatin) throws ApplicationException {
+    vatin = vatin.trim();
+    if (vatinList.contains(vatin))
+      throw new ApplicationException("VATIN already exists!");
+    if (!Pattern.matches("\\d{10}", vatin))
+      throw new ApplicationException("VATIN should contain exactly 10 digits!");
+    vatinList.add(vatin);
   }
 
   public StringProperty selectedVatinProperty() {
@@ -46,7 +57,7 @@ public class SleepTrackerModel {
     return startTime.isNotNull();
   }
 
-  public void stopSleepingAndUpdateData() throws Exception {
+  public void stopSleepingAndUpdateData() throws ApplicationException {
     if (!isStartedSleeping().get())
       throw new IllegalStateException();
 

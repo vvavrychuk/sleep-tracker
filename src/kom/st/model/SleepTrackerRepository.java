@@ -59,14 +59,14 @@ public class SleepTrackerRepository {
     return sleepRecords;
   }
 
-  public void addSleepRecord(SleepRecord record) throws Exception {
+  public void addSleepRecord(SleepRecord record) throws ApplicationException {
     Statement stmt = null;
     try {
       stmt = conn.createStatement();
       int rows = stmt.executeUpdate("insert into sleeptracker values (" +
         "'" + record.vatin + "', '" + record.start + "', " + record.duration + ")");
       if (rows == 0)
-        throw new Exception("No rows added!");
+        throw new ApplicationException("No rows added!");
     } catch (SQLException e) {
       throw new RuntimeException(e);
     } finally {

@@ -8,6 +8,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Pane;
+import kom.st.model.ApplicationException;
 import kom.st.model.SleepRecord;
 import kom.st.model.SleepTrackerModel;
 
@@ -63,13 +66,19 @@ public class MainController {
     dialog.setTitle("New user");
     dialog.setContentText("Please enter user name:");
 
-    dialog.getDialogPane().lookupButton(ButtonType.OK).disableProperty().bind(
-      dialog.getEditor().textProperty().length().isEqualTo(0));
+    dialog.setOnCloseRequest(event -> {
+      if (dialog.getResult() == null)
+        return;
 
-    Optional<String> result = dialog.showAndWait();
-    if (result.isPresent()) {
-      model.getVatinList().add(result.get());
-    }
+      try {
+        model.addVatin(dialog.getResult());
+      } catch (ApplicationException e) {
+        dialog.setError(e.getMessage());
+        event.consume();
+      }
+    });
+
+    dialog.showAndWait();
   }
 
   public void handleStart(ActionEvent event) {

@@ -17,7 +17,7 @@ public class SleepTrackerRepositorySync implements SleepTrackerRepositoryRx {
   }
 
   @Override
-  public void addSleepRecord(SleepRecord record) throws Exception {
+  public void addSleepRecord(SleepRecord record) throws ApplicationException {
     repository.addSleepRecord(record);
   }
 
