@@ -4,6 +4,7 @@
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
@@ -15,20 +16,24 @@
             <Button fx:id="newUserButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleNewUser" text="New user" />
          </children>
       </VBox>
-      <VBox maxWidth="1.7976931348623157E308" prefHeight="200.0">
+      <VBox maxWidth="1.7976931348623157E308" prefHeight="400.0" prefWidth="355.0">
          <children>
-            <TableView fx:id="sleepRecordsTable" maxWidth="1.7976931348623157E308" prefHeight="200.0">
+            <TableView fx:id="sleepRecordsTable" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
               <columns>
-                <TableColumn fx:id="startColumn" prefWidth="75.0" text="Start time" />
-                <TableColumn fx:id="durationColumn" prefWidth="75.0" text="Duration" />
+                <TableColumn fx:id="startColumn" prefWidth="226.0" text="Start time" />
+                <TableColumn fx:id="durationColumn" prefWidth="126.0" text="Duration" />
               </columns>
             </TableView>
-            <HBox prefHeight="100.0" prefWidth="200.0">
+            <AnchorPane maxHeight="1.7976931348623157E308" prefWidth="200.0">
                <children>
-                  <Button fx:id="startButton" mnemonicParsing="false" onAction="#handleStart" text="Start" />
-                  <Button fx:id="stopButton" mnemonicParsing="false" onAction="#handleStop" text="Stop" />
+                  <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" AnchorPane.rightAnchor="0.0">
+                     <children>
+                        <Button fx:id="startButton" mnemonicParsing="false" onAction="#handleStart" text="Start" />
+                        <Button fx:id="stopButton" mnemonicParsing="false" onAction="#handleStop" text="Stop" />
+                     </children>
+                  </HBox>
                </children>
-            </HBox>
+            </AnchorPane>
          </children>
       </VBox>
    </children>
