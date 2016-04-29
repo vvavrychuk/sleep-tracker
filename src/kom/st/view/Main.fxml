@@ -10,7 +10,7 @@
       <VBox>
          <children>
             <ListView fx:id="vatinList" />
-            <Button fx:id="newUserButton" mnemonicParsing="false" onAction="#handleNewUser" text="New user" />
+            <Button fx:id="newUserButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleNewUser" text="New user" />
          </children>
       </VBox>
    </children>
