@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 
 public class SleepTrackerModel {
-  private SleepTrackerRepositoryRx repository = new SleepTrackerRepositorySync();
+  private SleepTrackerRepositoryRx repository = new SleepTrackerRepositoryAsync();
 
   private ObservableList<String> vatinList = repository.getVatinList();
   private StringProperty selectedVatin = new SimpleStringProperty();
@@ -62,5 +62,9 @@ public class SleepTrackerModel {
     } finally {
       startTime.set(null);
     }
+  }
+
+  public void shutdown() {
+    repository.shutdown();
   }
 }

@@ -46,9 +46,13 @@ public class MainController {
     stopButton.disableProperty().bind(Bindings.not(model.isStartedSleeping()));
   }
 
-  public static Parent createView() {
+  public static ViewController<MainController> createViewController() {
     try {
-      return FXMLLoader.load(MainController.class.getResource("Main.fxml"));
+      FXMLLoader loader = new FXMLLoader(MainController.class.getResource("Main.fxml"));
+      return new ViewController<MainController>() {{
+        view = loader.load();
+        controller = loader.getController();
+      }};
     } catch (IOException e) {
       throw new RuntimeException(e);
     }
@@ -78,5 +82,9 @@ public class MainController {
       alert.setContentText(e.getMessage());
       alert.showAndWait();
     }
+  }
+
+  public void shutdown() {
+    model.shutdown();
   }
 }
