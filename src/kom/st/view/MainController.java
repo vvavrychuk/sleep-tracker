@@ -1,5 +1,7 @@
 package kom.st.view;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -20,6 +22,12 @@ public class MainController {
   @FXML
   private void initialize() {
     vatinList.setItems(model.getVatinList());
+    vatinList.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
+      @Override
+      public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+
+      }
+    });
   }
 
   public static Parent createView() {
