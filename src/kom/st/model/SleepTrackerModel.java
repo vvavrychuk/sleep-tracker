@@ -1,11 +1,9 @@
-package kom.st;
+package kom.st.model;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 import java.sql.*;
-
-import static java.lang.System.out;
 
 public class SleepTrackerModel {
   private ObservableList<String> vatinList = FXCollections.observableArrayList();

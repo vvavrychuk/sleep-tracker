@@ -1,4 +1,4 @@
-package kom.st;
+package kom.st.model;
 
 import java.sql.Connection;
 import java.sql.SQLException;

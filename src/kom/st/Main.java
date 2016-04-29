@@ -3,6 +3,7 @@ package kom.st;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import kom.st.view.MainController;
 
 public class Main extends Application {
     @Override
