@@ -3,6 +3,7 @@
 /out/
 /desktop/target/
 /model/target/
+/web/target/
 
 # User-specific stuff:
 .idea/workspace.xml

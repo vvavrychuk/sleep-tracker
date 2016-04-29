@@ -12,6 +12,7 @@
   <modules>
     <module>model</module>
     <module>desktop</module>
+    <module>web</module>
   </modules>
 
   <build>
@@ -30,7 +31,7 @@
         <artifactId>javafx-maven-plugin</artifactId>
         <version>8.1.4</version>
         <configuration>
-          <mainClass>kom.kom.st.Main</mainClass>
+          <mainClass>kom.st.Main</mainClass>
         </configuration>
       </plugin>
     </plugins>

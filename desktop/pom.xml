@@ -9,12 +9,12 @@
   </parent>
   <modelVersion>4.0.0</modelVersion>
 
-  <artifactId>desktop</artifactId>
+  <artifactId>sleep-tracker-desktop</artifactId>
 
   <dependencies>
     <dependency>
       <groupId>kom.st</groupId>
-      <artifactId>model</artifactId>
+      <artifactId>sleep-tracker-model</artifactId>
       <version>LATEST</version>
     </dependency>
   </dependencies>
@@ -26,7 +26,7 @@
         <artifactId>javafx-maven-plugin</artifactId>
         <version>8.1.4</version>
         <configuration>
-          <mainClass>kom.kom.st.Main</mainClass>
+          <mainClass>kom.st.Main</mainClass>
         </configuration>
       </plugin>
     </plugins>
