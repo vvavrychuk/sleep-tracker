@@ -26,14 +26,6 @@
           <target>1.8</target>
         </configuration>
       </plugin>
-      <plugin>
-        <groupId>com.zenjava</groupId>
-        <artifactId>javafx-maven-plugin</artifactId>
-        <version>8.1.4</version>
-        <configuration>
-          <mainClass>kom.st.Main</mainClass>
-        </configuration>
-      </plugin>
     </plugins>
   </build>
 </project>

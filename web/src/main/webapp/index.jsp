@@ -1,6 +1,6 @@
-<form action="/sleep-tracker-web-1.0.0/login" method="post">
-  <label for="user">User:</label>
-  <input id="user" name="user">
+<form action="${pageContext.servletContext.contextPath}/login" method="post">
+  <label for="vatin">VATIN:</label>
+  <input id="vatin" name="vatin">
 
   <label for="password">Password:</label>
   <input id="password" name="password" type="password">

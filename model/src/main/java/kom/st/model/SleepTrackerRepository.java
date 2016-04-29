@@ -9,7 +9,6 @@ public class SleepTrackerRepository {
   private Connection conn;
 
   public SleepTrackerRepository() {
-    System.out.println(System.getProperty("java.class.path"));
     try {
       Class.forName("org.postgresql.Driver");
     } catch (ClassNotFoundException e) {
@@ -48,8 +47,8 @@ public class SleepTrackerRepository {
       ResultSet rs = stmt.executeQuery("select start, duration from sleeptracker where vatin = '" + vatin + "'");
       while (rs.next()) {
         SleepRecord record = new SleepRecord();
-        record.start = rs.getTimestamp(1).toLocalDateTime();
-        record.duration = rs.getInt(2);
+        record.setStart(rs.getTimestamp(1).toLocalDateTime());
+        record.setDuration(rs.getInt(2));
         sleepRecords.add(record);
       }
     } catch (SQLException e) {
@@ -65,7 +64,7 @@ public class SleepTrackerRepository {
     try {
       stmt = conn.createStatement();
       int rows = stmt.executeUpdate("insert into sleeptracker values (" +
-        "'" + record.vatin + "', '" + record.start + "', " + record.duration + ")");
+        "'" + record.getVatin() + "', '" + record.getStart() + "', " + record.getDuration() + ")");
       if (rows == 0)
         throw new ApplicationException("No rows added!");
     } catch (SQLException e) {
