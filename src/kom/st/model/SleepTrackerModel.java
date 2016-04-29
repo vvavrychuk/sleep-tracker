@@ -1,6 +1,5 @@
 package kom.st.model;
 
-import javafx.beans.binding.Binding;
 import javafx.beans.binding.Bindings;
 import javafx.beans.property.*;
 import javafx.beans.value.ObservableBooleanValue;
@@ -48,18 +47,18 @@ public class SleepTrackerModel {
     return startTime.isNotNull();
   }
 
-  public void stopSleepingAndUpdateData(String vatin) throws Exception {
+  public void stopSleepingAndUpdateData() throws Exception {
     if (!isStartedSleeping().get())
       throw new IllegalStateException();
 
     try {
       SleepRecord record = new SleepRecord();
-      record.vatin = vatin;
+      record.vatin = selectedVatin.get();
       record.start = startTime.get();
       record.duration = (int)startTime.get().until(LocalDateTime.now(), ChronoUnit.SECONDS);
       repository.addSleepRecord(record);
-      if (!vatinList.contains(vatin))
-        vatinList.add(vatin);
+      if (!vatinList.contains(selectedVatin.get()))
+        vatinList.add(selectedVatin.get());
       vatinSleepRecords.add(record);
     } finally {
       startTime.set(null);
