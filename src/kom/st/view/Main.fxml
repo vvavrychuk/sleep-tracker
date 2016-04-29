@@ -12,13 +12,13 @@
    <children>
       <VBox>
          <children>
-            <ListView fx:id="vatinList" />
+            <ListView fx:id="vatinList" VBox.vgrow="ALWAYS" />
             <Button fx:id="newUserButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleNewUser" text="New user" />
          </children>
       </VBox>
       <VBox maxWidth="1.7976931348623157E308" prefHeight="400.0" HBox.hgrow="ALWAYS">
          <children>
-            <TableView fx:id="sleepRecordsTable" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
+            <TableView fx:id="sleepRecordsTable" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS">
               <columns>
                 <TableColumn fx:id="startColumn" prefWidth="226.0" text="Start time" />
                 <TableColumn fx:id="durationColumn" prefWidth="126.0" text="Duration" />
