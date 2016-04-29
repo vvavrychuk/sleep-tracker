@@ -64,6 +64,7 @@ public class MainController {
   public void handleNewUser(ActionEvent actionEvent) {
     TextInputDialog dialog = new TextInputDialog();
     dialog.setTitle("New user");
+    dialog.setHeaderText("New vatin");
     dialog.setContentText("Please enter user name:");
 
     dialog.setOnCloseRequest(event -> {

@@ -1,5 +1,6 @@
 package kom.st.view;
 
+import javafx.beans.value.ObservableBooleanValue;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
@@ -9,8 +10,8 @@ public class TextInputDialog extends javafx.scene.control.TextInputDialog {
   private Label label;
 
   public TextInputDialog() {
-    getDialogPane().lookupButton(ButtonType.OK).disableProperty().bind(
-      getEditor().textProperty().length().isEqualTo(0));
+    ObservableBooleanValue textExists = BindingUtils.trim(getEditor().textProperty()).length().isEqualTo(0);
+    getDialogPane().lookupButton(ButtonType.OK).disableProperty().bind(textExists);
   }
 
   public void setError(String message) {
