@@ -38,4 +38,39 @@ public class SleepTrackerRepository {
     }
     return vatinList;
   }
+
+  public List<SleepRecord> getSleepRecords(String vatin) {
+    List<SleepRecord> sleepRecords = new ArrayList<>();
+    Statement stmt = null;
+    try {
+      stmt = conn.createStatement();
+      ResultSet rs = stmt.executeQuery("select start, duration from sleeptracker where vatin = '" + vatin + "'");
+      while (rs.next()) {
+        SleepRecord record = new SleepRecord();
+        record.start = rs.getTimestamp(1).toLocalDateTime();
+        record.duration = rs.getInt(2);
+        sleepRecords.add(record);
+      }
+    } catch (SQLException e) {
+      throw new RuntimeException(e);
+    } finally {
+      DBUtils.close(stmt);
+    }
+    return sleepRecords;
+  }
+
+  public void addSleepRecord(SleepRecord record) throws Exception {
+    Statement stmt = null;
+    try {
+      stmt = conn.createStatement();
+      int rows = stmt.executeUpdate("insert into sleeptracker values (" +
+        "'" + record.vatin + "', '" + record.start + "', " + record.duration + ")");
+      if (rows == 0)
+        throw new Exception("No rows added!");
+    } catch (SQLException e) {
+      throw new RuntimeException(e);
+    } finally {
+      DBUtils.close(stmt);
+    }
+  }
 }
