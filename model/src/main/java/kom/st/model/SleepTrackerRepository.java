@@ -9,6 +9,7 @@ public class SleepTrackerRepository {
   private Connection conn;
 
   public SleepTrackerRepository() {
+    System.out.println(System.getProperty("java.class.path"));
     try {
       Class.forName("org.postgresql.Driver");
     } catch (ClassNotFoundException e) {
