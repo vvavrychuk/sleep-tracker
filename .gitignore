@@ -1,6 +1,7 @@
 # Based on https://github.com/github/gitignore/blob/master/Global/JetBrains.gitignore
 
 /out/
+/target/
 
 # User-specific stuff:
 .idea/workspace.xml
