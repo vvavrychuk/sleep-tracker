@@ -42,8 +42,8 @@ public class MainController {
     model.selectedVatinProperty().bind(vatinList.getSelectionModel().selectedItemProperty());
     sleepRecordsTable.itemsProperty().bind(model.vatinSleepRecordsProperty());
 
-    startColumn.setCellValueFactory(record -> new SimpleObjectProperty<>(record.getValue().start));
-    durationColumn.setCellValueFactory(record -> new SimpleIntegerProperty(record.getValue().duration));
+    startColumn.setCellValueFactory(record -> new SimpleObjectProperty<>(record.getValue().getStart()));
+    durationColumn.setCellValueFactory(record -> new SimpleIntegerProperty(record.getValue().getDuration()));
 
     startButton.disableProperty().bind(model.selectedVatinProperty().isNull().or(model.isStartedSleeping()));
     stopButton.disableProperty().bind(Bindings.not(model.isStartedSleeping()));

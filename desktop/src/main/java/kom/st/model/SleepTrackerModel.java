@@ -63,9 +63,9 @@ public class SleepTrackerModel {
 
     try {
       SleepRecord record = new SleepRecord();
-      record.vatin = selectedVatin.get();
-      record.start = startTime.get();
-      record.duration = (int)startTime.get().until(LocalDateTime.now(), ChronoUnit.SECONDS);
+      record.setVatin(selectedVatin.get());
+      record.setStart(startTime.get());
+      record.setDuration((int)startTime.get().until(LocalDateTime.now(), ChronoUnit.SECONDS));
       repository.addSleepRecord(record);
       if (!vatinList.contains(selectedVatin.get()))
         vatinList.add(selectedVatin.get());
