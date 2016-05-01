@@ -2,8 +2,14 @@
 
 User ${sessionScope.sleepRecordsManager.vatin}
 
-<c:forEach items="${sessionScope.sleepRecordsManager.sleepRecords}" var="sleepRecord">
-  <tr>
-    <td>${sleepRecord.duration}</td>
-  </tr>
-</c:forEach>
+<table border="1">
+  <c:forEach items="${sessionScope.sleepRecordsManager.sleepRecords}" var="sleepRecord">
+    <tr>
+      <td>${sleepRecord.start}</td>
+      <td>${sleepRecord.duration}</td>
+      <td><a href="${pageContext.servletContext.contextPath}/delete?start=${sleepRecord.start}">delete</a></td>
+    </tr>
+  </c:forEach>
+</table>
+
+<a href="create.jsp">add</a>

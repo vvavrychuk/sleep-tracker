@@ -21,6 +21,6 @@ public class LoginServlet extends HttpServlet {
     SleepTrackerRepository repository = (SleepTrackerRepository) getServletContext().getAttribute("repository");
     SleepRecordsManager manager = new SleepRecordsManager(repository, vatin);
     req.getSession().setAttribute("sleepRecordsManager", manager);
-    getServletContext().getRequestDispatcher("/list.jsp").forward(req, resp);
+    resp.sendRedirect(getServletContext().getContextPath() + "/list.jsp");
   }
 }
